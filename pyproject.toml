@@ -1,6 +1,6 @@
 [project]
 name = "extended-euclidean-algorithm"
-version = "0.1.0"
+version = "0.1.1"
 description = "Returns the Bézout coefficients and gcd of two integers, useful for modular inverses and Diophantine equation solving."
 requires-python = ">=3.10"
 dependencies = []
