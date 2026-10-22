@@ -31,3 +31,10 @@ The trade-off: inputs are restricted to genuine `int`s. `math.gcd` quietly coerc
 - `mod_inverse(a, m) -> int` — returns `x` in `[0, m)` with `(a * x) % m == 1`.
 - `solve_linear_diophantine(a, b, c) -> tuple[int, int]` — returns one particular `(x, y)` solution; raises `ValueError` when no solution exists.
 - `ExtendedGcdResult` — the result dataclass, exported so callers can type-check or deconstruct results.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
